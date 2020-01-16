@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="success">
+  	 <ion-buttons slot="start">
+     <ion-button (click)="goUserProfile()">
+    	<ion-icon name="person" slot="start"></ion-icon>
+    	{{username}}
+     </ion-button>
+    </ion-buttons><br>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tambah Paket {{jenis}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+   <ion-item>
+	  <ion-label position="floating">Isi Harga Paket</ion-label>
+	  <ion-input type="number" [(ngModel)]="harga"></ion-input>
+   </ion-item>
+  <ion-button color="success" expand="block" (click)="getPostData(id,harga,jenis)">Tambah</ion-button>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="success">
+  	 <ion-buttons slot="start">
+     <ion-button (click)="goUserProfile()">
+    	<ion-icon name="person" slot="start"></ion-icon>
+    	{{username}}
+     </ion-button>
+    </ion-buttons><br>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+   <ion-item>
+	  <ion-label position="floating">Kata Sandi Lama</ion-label>
+	  <ion-input type="password" [(ngModel)]="kataSandi"></ion-input>
+   </ion-item>
+
+  	<ion-item>
+	  <ion-label position="floating">Kata Sandi Baru</ion-label>
+	  <ion-input type="password" [(ngModel)]="kataSandiBru"></ion-input>
+   </ion-item>
+   <ion-item>
+	  <ion-label position="floating">Konfirmasi Kata Sandi Baru</ion-label>
+	  <ion-input type="password" [(ngModel)]="kataSandiBruLg"></ion-input>
+   </ion-item>
+  <ion-button color="success" expand="block" (click)="getPostData(id)">Ganti Kata Sandi</ion-button>
+</ion-content>

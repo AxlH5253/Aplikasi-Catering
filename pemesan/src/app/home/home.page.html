@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>
+      Food Catering
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+   <ion-item>
+	  <ion-label position="floating">Nama Pengguna</ion-label>
+	  <ion-input type="text" [(ngModel)]="nama_user"></ion-input>
+   </ion-item>
+
+  	<ion-item>
+	  <ion-label position="floating">Kata Sandi</ion-label>
+	  <ion-input type="password" [(ngModel)]="kata_sandi"></ion-input>
+   </ion-item>
+  <ion-button color="success" expand="block" (click)="login()">Masuk</ion-button>
+  <ion-button color="success" expand="block" routerLink="/register" routerDirection="forward">Buat Akun</ion-button>
+</ion-content>

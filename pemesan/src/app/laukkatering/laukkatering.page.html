@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="success">
+  	 <ion-buttons slot="start">
+     <ion-button (click)="goUserProfile()">
+    	<ion-icon name="person" slot="start"></ion-icon>
+    	{{username}}
+     </ion-button>
+    </ion-buttons><br>
+    <ion-title color="light">
+      List Makanan
+    </ion-title>
+    <ion-buttons slot="end" (click)="logout()">
+     <ion-button>
+    	<ion-icon name="log-out" slot="icon-only"></ion-icon>
+     </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+   <ion-list lines="full" *ngFor="let item of (items) ; let i = index">
+	  <ion-item lines = "none">
+	    <ion-label>{{item[2]}}</ion-label>
+	  </ion-item>
+   </ion-list>
+  <ion-button expand="full" (click)="goNextPage()" color="success">Pilih</ion-button>
+</ion-content>

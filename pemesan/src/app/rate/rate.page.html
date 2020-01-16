@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="success">
+  	 <ion-buttons slot="start">
+     <ion-button (click)="goUserProfile()">
+    	<ion-icon name="person" slot="start"></ion-icon>
+    	{{username}}
+     </ion-button>
+    </ion-buttons><br>
+    <ion-title color="light">
+      {{namaPenjual}}
+    </ion-title>
+    <ion-buttons slot="end" (click)="logout()">
+     <ion-button>
+    	<ion-icon name="log-out" slot="icon-only"></ion-icon>
+     </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<div style="padding-left: 10px; padding-right: 10px; color: black;">
+      <ion-grid>
+      <ion-row>
+        <ion-col>
+         <ion-icon class="iconSize" name="star" color="{{colorStar1}}" (click)="giveRate('1')"></ion-icon>
+        </ion-col>
+        <ion-col>
+         <ion-icon class="iconSize" name="star" color="{{colorStar2}}" (click)="giveRate('2')"></ion-icon>
+        </ion-col>
+        <ion-col>
+         <ion-icon class="iconSize" name="star" color="{{colorStar3}}" (click)="giveRate('3')"></ion-icon>
+        </ion-col>
+        <ion-col>
+         <ion-icon class="iconSize" name="star" color="{{colorStar4}}" (click)="giveRate('4')"></ion-icon> 
+        </ion-col>
+        <ion-col>
+         <ion-icon class="iconSize" name="star" color="{{colorStar5}}" (click)="giveRate('5')"></ion-icon>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+    </div>
+    <ion-item color="light">
+    <ion-textarea color="dark" placeholder="Tulis Ulasan"
+	  [(ngModel)]="ulasan">
+	</ion-textarea>
+	</ion-item>
+	<ion-button color="{{btnColor}}" expand="block" (click)="sendRatesData(id[1],idPembeli,nilai,ulasan)">
+  		Kirim
+	</ion-button><br><br>
+    &nbsp; &nbsp; <span>Penilaian dan ulasan {{namaPenjual}}</span><br><br>
+
+  <div *ngFor="let item of (items)">
+   <ion-card *ngIf="item[5] > 0">
+     <ion-item>
+      <ion-avatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+      <ion-label>
+        {{item[2]}}
+      </ion-label>
+     </ion-item>
+     <ion-item>
+      <ion-grid>
+      <ion-row>
+        <ion-col *ngFor= "let cStar of (cStars)">
+         <ion-icon *ngIf="cStar <= item[4]" name="star" color="warning" ></ion-icon>
+         <ion-icon *ngIf="cStar > item[4]" name="star" color="medium" ></ion-icon>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+     </ion-item>
+    <ion-card-content>
+       {{item[3]}}
+     </ion-card-content>
+  </ion-card>
+  </div>
+</ion-content>

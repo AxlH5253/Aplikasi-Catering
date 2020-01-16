@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="success">
+  	 <ion-buttons slot="start">
+     <ion-button (click)="goUserProfile()">
+    	<ion-icon name="person" slot="start"></ion-icon>
+    	{{username}}
+     </ion-button>
+    </ion-buttons><br>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+ <ion-card (click)="goDpaket('1')">
+  <ion-card-content>
+  	<ion-row>
+  		<ion-col>
+  			<ion-img [src]="'http://'+host+'/kevyn/gambar/prasmanan.jpg'"></ion-img>
+  		</ion-col>
+  	</ion-row>
+  	<ion-row>
+  		<ion-col>
+  			<h1>Prasmanan</h1>
+  		</ion-col>
+  	</ion-row>
+  </ion-card-content>
+</ion-card>
+
+ <ion-card (click)="goDpaket('2')">
+  <ion-card-content>
+  	<ion-row>
+  		<ion-col>
+  			<ion-img [src]="'http://'+host+'/kevyn/gambar/kotak.jpg'"></ion-img>
+  		</ion-col>
+  	</ion-row>
+  	<ion-row>
+  		<ion-col>
+  			<h1>Nasi Kotak</h1>
+  		</ion-col>
+  	</ion-row>
+  </ion-card-content>
+</ion-card>
+</ion-content>

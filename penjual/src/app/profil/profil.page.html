@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="success">
+  	 <ion-buttons slot="start">
+     <ion-button (click)="goUserProfile()">
+    	<ion-icon name="person" slot="start"></ion-icon>
+    	{{username}}
+     </ion-button>
+    </ion-buttons><br>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div>
+    <ion-button color="success" (click)="goTampilProfil()" expand="full">Atur Profil</ion-button>
+    <ion-button color="success" (click)="goRate()" expand="full">Penilaian & Ulasan</ion-button>
+    <ion-button color="success" (click)="logout()" expand="full">Keluar</ion-button>
+  </div>
+</ion-content>

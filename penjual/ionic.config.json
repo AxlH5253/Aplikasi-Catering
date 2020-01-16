@@ -1,0 +1,7 @@
+{
+  "name": "pcatering",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

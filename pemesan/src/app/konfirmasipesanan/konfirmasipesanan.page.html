@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="success">
+  	 <ion-buttons slot="start">
+     <ion-button (click)="goUserProfile()">
+    	<ion-icon name="person" slot="start"></ion-icon>
+    	{{username}}
+     </ion-button>
+    </ion-buttons><br>
+    <ion-title color="light">
+      Konfirmasi Pesanan
+    </ion-title>
+    <ion-buttons slot="end" (click)="logout()">
+     <ion-button>
+    	<ion-icon name="log-out" slot="icon-only"></ion-icon>
+     </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nama Tempat Katering</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>{{daftarpensananservice.dataPesanan[1]}}</ion-label>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Pesanan</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label> Jenis Katering : {{daftarpensananservice.dataPesanan[0]}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label> Paket : {{daftarpensananservice.dataPesanan[2]}} / Kepala</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{jmlhKepala}} Kepala</ion-label>
+        <ion-icon color="success" name="add-circle" slot="end" (click)="setJumlahKepala(true)"></ion-icon>
+        <ion-icon color="success" name="remove-circle" slot="end" (click)="setJumlahKepala(false)"></ion-icon>
+      </ion-item>  
+      <ion-item>
+        <ion-label>Total Harga {{daftarpensananservice.dataPesanan[2]*jmlhKepala}}</ion-label>
+      </ion-item>
+      <div  [class.hide]="showData">
+        <ion-label> Isi Kotak : </ion-label><br>
+        <ion-label>{{daftarpensananservice.dataPesanan[3]}}</ion-label>
+      </div> 
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Waktu Antar</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label> Tanggal : {{daftarpensananservice.waktu[0]}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label> Jam : {{daftarpensananservice.waktu[1]}}</ion-label>
+      </ion-item> 
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Detail Alamat</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{daftarpensananservice.alamat[2]}}
+    </ion-card-content>
+  </ion-card>
+
+   <ion-card>
+    <ion-card-content>
+      <ion-textarea placeholder="Masukan No.Hp (08xxxxx)" 
+        type="number"
+        [(ngModel)]="konfirPesan"
+        (ionChange)="enableButton()"
+      ></ion-textarea>
+    </ion-card-content>
+  </ion-card>
+
+   <ion-button color="{{btnColor}}" expand="block" (click)="postRequest()">Konfirmasi Pesan</ion-button>
+
+</ion-content>

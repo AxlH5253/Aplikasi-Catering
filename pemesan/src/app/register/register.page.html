@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>
+      Buat Akun
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+   <ion-item color="light">
+	  <ion-label position="floating">Nama Pengguna</ion-label>
+	  <ion-input type="text" [(ngModel)]="nama_user"></ion-input>
+   </ion-item>
+
+  	<ion-item color="light">
+	  <ion-label position="floating">Kata Sandi</ion-label>
+	  <ion-input type="password" [(ngModel)]="kata_sandi"></ion-input>
+   </ion-item>
+
+   <ion-item color="light">
+	  <ion-label position="floating">Konfirmasi Kata Sandi</ion-label>
+	  <ion-input type="password" [(ngModel)]="konfirmasi_kata_sandi"></ion-input>
+   </ion-item>
+
+  <ion-button color="success" expand="block" (click)="postRequest()">Daftar</ion-button>
+  <ion-button color="success" expand="block" routerLink="/home" routerDirection="forward">Sudah Punya Akun</ion-button>
+</ion-content>

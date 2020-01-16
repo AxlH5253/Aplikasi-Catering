@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>
+      Aplikasi Catering
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="images.length == 0">
+  <ion-card *ngIf="images.length == 0">
+  <ion-card-content>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="'http://'+host+'/kevyn/gambar/'+items[2]"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>{{items[1]}}</h1>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+  </ion-card>
+    <ion-button expand="full" (click)="selectImage()">Pilih Foto</ion-button>
+    <ion-button expand="full" (click)="startUpload(img)">Simpan</ion-button>
+  </div>
+  
+  <div *ngFor="let img of images; index as pos">
+  <ion-card>
+  <ion-card-content>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="img.path"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>{{img.name}}</h1>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+  </ion-card>
+    <ion-button color="success" expand="full" (click)="selectImage()">Pilih Foto</ion-button>
+    <ion-button color="success" expand="full" (click)="startUpload(img)">Simpan</ion-button>
+</div>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="success">
+  	 <ion-buttons slot="start">
+     <ion-button (click)="goUserProfile()">
+    	<ion-icon name="person" slot="start"></ion-icon>
+    	{{username}}
+     </ion-button>
+    </ion-buttons><br>
+    <ion-title color="light">
+      Waktu Antar
+    </ion-title>
+    <ion-buttons slot="end" (click)="logout()">
+     <ion-button>
+    	<ion-icon name="log-out" slot="icon-only"></ion-icon>
+     </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Pilih Tanggal</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+   <ion-item>
+    <ion-label position="floating" lines="full">Bulan/Tanggal/Tahun </ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" min="2019-01-01" max="2019-12-31" 
+    [(ngModel)]="tanggal"></ion-datetime>
+   </ion-item>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Jan:Menit</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+   <ion-item>
+    <ion-label>Jam : </ion-label>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="jam"></ion-datetime>
+   </ion-item>
+  </ion-card-content>
+</ion-card>
+
+<ion-button (click)="goNextPage()" color="success" expand="block">Simpan</ion-button>
+
+</ion-content>

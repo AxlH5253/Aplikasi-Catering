@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="success">
+  	 <ion-buttons slot="start">
+     <ion-button (click)="goUserProfile()">
+    	<ion-icon name="person" slot="start"></ion-icon>
+    	{{username}}
+     </ion-button>
+    </ion-buttons><br>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Atur makanan {{header}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+  <ion-select interface="popover" 
+      (ionChange)="checkValue($event)" 
+      placeholder="Pilih Salah Satu Paket" >
+      <ion-select-option *ngFor="let item of items" [value]="item[0]"> 
+       {{item[2]}}/{{jenis}}
+      </ion-select-option>
+  </ion-select>
+
+ <ion-button expand="full" color="success" (click)="goAturMknan(chooseId)">Atur Makanan</ion-button>
+ <ion-button expand="full" color="success" (click)="goTambahPaket(id+idPaket)">Tambah Paket</ion-button>
+ <ion-button expand="full" color="success" (click)="goUpdatePaket(chooseId)">Ubah Paket</ion-button>
+ <ion-button expand="full" color="success" (click)="hapusPaket(chooseId,idPaket,header)">Hapus Paket</ion-button>
+
+</ion-content>
